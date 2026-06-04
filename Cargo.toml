@@ -1,0 +1,23 @@
+[package]
+name = "construct-core"
+version = "0.1.0"
+edition = "2021"
+description = "Hardware-agnostic agent runtime with layered trait system for the SuperInstance Construct API"
+license = "MIT"
+repository = "https://github.com/SuperInstance/construct-core"
+keywords = ["agent", "embedded", "no-std", "async", "construct"]
+categories = ["embedded", "no-std", "asynchronous"]
+
+
+
+[dependencies]
+tokio = { version = "1", features = ["full"], optional = true }
+
+[features]
+default = ["std"]
+std = ["alloc", "dep:tokio"]
+alloc = []
+bare-metal = []  # Only Layer 0
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full"] }
