@@ -98,6 +98,15 @@ impl SkillId {
             Self::Custom(v) => v,
         }
     }
+
+    /// Safe constructor for runtime-defined skill IDs.
+    ///
+    /// Values 0–7 are reserved for named variants; `Custom(0..=7)` cannot
+    /// round-trip through `as_u8` / `from_u8` correctly. Returns `None` for
+    /// reserved values.
+    pub const fn new_custom(v: u8) -> Option<Self> {
+        if v <= 7 { None } else { Some(Self::Custom(v)) }
+    }
 }
 
 // ── Query / QueryKind ────────────────────────────────────────────────────────

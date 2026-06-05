@@ -119,7 +119,7 @@ impl SyncConstruct for DgxConstruct {
         };
 
         let mut metadata = vec![action.as_u8(), q.kind as u8];
-        metadata.extend_from_slice(&self.tools.len().to_le_bytes());
+        metadata.extend_from_slice(&(self.tools.len() as u64).to_le_bytes());
 
         Ok(OwnedResponse::new(action, confidence, metadata))
     }
@@ -154,7 +154,6 @@ impl AsyncConstruct for DgxConstruct {
     }
 
     async fn query_async(&self, q: OwnedQuery) -> Result<OwnedResponse, ConstructError> {
-        // Simulate async I/O — in production this would hit GPU / network
         // Simulate async I/O — in production this would hit GPU / network
         // We use tokio only when available
         #[cfg(feature = "std")]
