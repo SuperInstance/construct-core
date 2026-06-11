@@ -1,6 +1,6 @@
 [package]
 name = "construct-core"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 description = "Hardware-agnostic agent runtime with layered trait system for the SuperInstance Construct API"
 license = "MIT"
