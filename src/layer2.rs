@@ -1,7 +1,7 @@
 //! Layer 2 — `AsyncConstruct` trait.
 //!
-/// Full `std` + async runtime. Tool acquisition/release, async queries,
-/// tokio-based runtime. Works on workstations, DGX clusters, cloud instances.
+//! Full `std` + async runtime. Tool acquisition/release, async queries,
+//! tokio-based runtime. Works on workstations, DGX clusters, cloud instances.
 
 use crate::types::{ToolSpec, ToolHandle, OwnedQuery, OwnedResponse, ConstructError};
 use crate::layer1::SyncConstruct;

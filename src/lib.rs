@@ -31,7 +31,9 @@ extern crate alloc;
 
 mod types;
 mod layer0;
+#[cfg(feature = "alloc")]
 mod layer1;
+#[cfg(feature = "std")]
 mod layer2;
 
 pub use types::*;

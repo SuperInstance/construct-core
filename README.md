@@ -1,5 +1,8 @@
 # construct-core
 
+[![CI](https://github.com/SuperInstance/construct-core/actions/workflows/ci.yml/badge.svg)](https://github.com/SuperInstance/construct-core/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 **The v2 layered trait system for the SuperInstance Construct API.**
 
 This crate implements a hardware-agnostic agent runtime with three progressively

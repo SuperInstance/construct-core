@@ -1,6 +1,6 @@
 //! `EspConstruct` — Layer 0 only, ESP32-class hardware.
 //!
-/// Fixed 256-entry lookup table, no heap, no OS.
+//! Fixed 256-entry lookup table, no heap, no OS.
 
 use crate::types::{TritAction, BareMetalCapabilities, Query, Response, ConstructError, HardwareTier};
 use crate::layer0::BareMetalConstruct;

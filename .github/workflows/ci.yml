@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main, master]
+    branches: ['*']
   pull_request:
     branches: [main, master]
 
@@ -15,13 +15,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
-      - run: cargo check --all-features
+      - uses: Swatinem/rust-cache@v2
+      - name: Check all features
+        run: cargo check --all-features
+      - name: Check bare-metal (no defaults)
+        run: cargo check --no-default-features --features bare-metal
 
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
       - run: cargo test --all-features
 
   clippy:
@@ -31,6 +36,7 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
         with:
           components: clippy
+      - uses: Swatinem/rust-cache@v2
       - run: cargo clippy --all-features -- -D warnings
 
   fmt:
